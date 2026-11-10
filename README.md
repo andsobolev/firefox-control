@@ -1,5 +1,7 @@
 # Firefox Control
 
+**[Инструкция по установке на русском](INSTALL-RU.md)** — пошаговая настройка Windows, Firefox и Codex.
+
 Connect a local Firefox browser to Codex on Windows. List and read ordinary
 tabs, open and navigate pages, close selected tabs, remove exact duplicates,
 click visible controls, fill text fields, scroll and capture screenshots.
