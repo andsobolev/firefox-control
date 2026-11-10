@@ -1,0 +1,66 @@
+Browser Control Bridge for Firefox 0.3.1
+Public listing candidate, Windows desktop. Stable ID: {733bdf90-e75f-42d5-9b0c-0cc486bf8133}.
+This is an independent integration, not an official Mozilla or OpenAI product.
+
+Purpose: allow an explicitly paired local AI/MCP client to list ordinary tabs,
+read a requested page, open/navigate/close tabs, click, fill supported text fields, scroll,
+and capture a requested tab screenshot. No passive browsing collection.
+
+Source: readable, unminified JavaScript/HTML/CSS. No build step, remote code,
+eval, external libraries or developer-hosted service. The signing ZIP is a direct
+allowlisted copy of extension/. The companion has zero npm runtime dependencies.
+The separate reviewer-source ZIP includes all extension and companion source.
+
+Permissions:
+- <all_urls>: required by Firefox tabs.captureTab for requested screenshots;
+  also permits DOM interaction and the authenticated 127.0.0.1 connection.
+  The extension itself rejects all non-HTTP/HTTPS targets, including file://.
+- tabs: URLs/titles, routing, navigation and explicitly requested closing.
+- storage: explicit pairing/consent and pause persistence.
+Private browsing is disallowed. No cookies, history, bookmarks or password API.
+
+Data disclosure:
+The manifest uses Firefox built-in required data consent (minimum Firefox142).
+Website contents/screenshots may contain personally identifying information,
+communications, health, financial/payment, authentication identifiers, location
+and search terms; the corresponding categories are declared, alongside browsing
+and website activity. The add-on has a prominent setup disclosure and an English
+privacy page. Pairing plus an unchecked explicit consent checkbox is required
+before connecting. Requested data is returned to the local MCP/AI client, which
+may process it through its AI provider. No analytics or developer remote server.
+Pairing secrets are created on the reviewing computer, not included in either ZIP.
+
+Manual review on Windows:
+1. Install Node.js22+ and Firefox142+.
+2. Extract reviewer-source.zip and run node server/setup-loopback.mjs.
+3. Run node server/loopback-host.mjs in a terminal. It prints only its local port.
+4. Install the add-on. Its settings page opens (Russian UI).
+5. Select the generated %LOCALAPPDATA%\FirefoxControl\firefox-control-connection.json.
+   Tick the data consent checkbox, press "Подключить" (Connect).
+   "Подключено к локальному плагину" means connected.
+6. In a second terminal at the source root run node tests/smoke.mjs with exactly
+   one paired profile. This starts a localhost fixture and exercises all ten MCP
+   tools, including fill/click, screenshot, scroll, navigation and guarded closing. No AI account
+   or external website login is needed.
+7. Toolbar "Приостановить доступ" pauses/disconnects. "Возобновить доступ" resumes.
+   "Настройки подключения" opens settings. "Отключить и забыть настройку" disconnects
+   and deletes the saved pairing. The settings/paused flag survive browser restart.
+8. Close the companion terminal and remove the test extension when done.
+
+npm test runs protocol/authentication, pairing/persistence and regression tests.
+Development-only browser-smoke.mjs can provision an isolated headless Firefox
+profile with generated test settings. Its generated driver is NOT in the addon.
+
+Safety:
+Only exact 127.0.0.1 endpoints with a per-installation bearer key are accepted.
+Web origins and unauthenticated local requests are rejected by the companion.
+No arbitrary script execution command is exposed. Content script messages are
+restricted to this extension, visible-element IDs and expected URLs; expiring
+commands and no replay after disconnect protect against stale actions.
+Password/file inputs are rejected. Text reads omit input values, although visible
+data can appear in screenshots. Pausing disconnects; no collection while unpaired.
+
+0.3.0 update: adds close_tab with mandatory exact-URL verification and optional
+keepTabId protection when removing exact duplicate addresses. It confirms closure,
+does not replay timed-out operations, and uses no new permissions. The local CLI
+can remove duplicates only with --apply; its default is a count-only preview.

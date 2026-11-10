@@ -1,0 +1,31 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "firefox-control",
+  "version": "0.3.1",
+  "description": "Read and control local Firefox tabs through a native messaging bridge.",
+  "author": {
+    "name": "andsobolev"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Firefox Control",
+        "shortDescription": "Read and control Firefox tabs",
+        "longDescription": "Connect your local Firefox tabs to Codex. Read pages, open, navigate and close tabs, remove exact duplicates, click, fill, scroll and capture screenshots. Requires the included Firefox add-on and local native host.",
+        "developerName": "andsobolev",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "defaultPrompt": "List my Firefox tabs and help me with the page I choose.",
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg"
+      },
+      "requires_local_executor": true
+    }
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/andsobolev/firefox-control",
+  "repository": "https://github.com/andsobolev/firefox-control"
+}

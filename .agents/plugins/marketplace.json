@@ -1,0 +1,10 @@
+{
+  "name": "firefox-control-public",
+  "interface": {"displayName": "Firefox Control"},
+  "plugins": [{
+    "name": "firefox-control",
+    "source": {"source": "local", "path": "./plugins/firefox-control"},
+    "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
+    "category": "Productivity"
+  }]
+}

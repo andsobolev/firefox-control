@@ -1,0 +1,18 @@
+{
+  "name": "firefox-control",
+  "version": "0.3.1",
+  "private": true,
+  "type": "module",
+  "description": "Local Firefox tools for Codex via native messaging",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "start": "node server/mcp.mjs"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "andsobolev"
+  }
+}

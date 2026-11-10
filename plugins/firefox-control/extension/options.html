@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Настройка Firefox Control</title><link rel="stylesheet" href="options.css"></head>
+<body><main>
+<img src="icon.svg" alt="" width="48" height="48"><h1>Подключение Firefox к ИИ-ассистенту</h1>
+<p>Browser Control Bridge for Firefox · 0.3.1</p>
+<section aria-labelledby="privacy"><h2 id="privacy">Какие данные получает ассистент</h2>
+<p>По запросу через локальный плагин расширение передаёт список обычных вкладок (адреса и заголовки), текст выбранной страницы, ссылки, элементы интерфейса и снимки экрана. Ассистент также может открывать и закрывать вкладки, нажимать кнопки, вводить текст и прокручивать страницу.</p>
+<p>Данные передаются локальному приложению на этом компьютере и далее обрабатываются подключённым ИИ-ассистентом согласно его настройкам и политике конфиденциальности. На выбранной странице могут быть переписка, имена, местоположение, поисковые запросы, сведения о здоровье, финансах или учётных записях.</p>
+<p>Нет фонового чтения вкладок, аналитики или сервера разработчика. Приватные окна исключены. Значения полей ввода не включаются в текстовое чтение, но видимое содержимое может попасть на снимок экрана. Пароли и загрузка файлов через инструменты не поддерживаются.</p>
+<p>Доступ можно приостановить кнопкой на панели Firefox или полностью отключить ниже. <a href="privacy.html">Privacy information in English</a></p></section>
+<section><h2>Настроить один раз</h2>
+<p>Запустите <code>install.ps1</code> из папки локального плагина. Затем выберите файл <code>firefox-control-connection.json</code> из папки <code>%LOCALAPPDATA%\FirefoxControl</code>.</p>
+<p><strong>Это секретный файл подключения. Не загружайте его на сайт Mozilla и не отправляйте в чат.</strong> Здесь он читается локально и сохраняется в настройках расширения.</p>
+<form id="pair">
+<label for="file">Файл подключения</label><input id="file" type="file" accept=".json,application/json" required>
+<label class="consent"><input id="consent" type="checkbox" required><span>Разрешаю указанную передачу данных и управление обычными вкладками через мой локальный ИИ-ассистент.</span></label>
+<button type="submit">Подключить</button>
+</form></section>
+<p id="status" role="status" aria-live="polite">Проверка подключения…</p>
+<div class="actions"><button id="toggle" type="button">Приостановить</button><button id="reconnect" type="button">Переподключить</button><button id="forget" type="button">Отключить и забыть настройку</button></div>
+<p>После установки подписанного расширения настройка сохраняется при перезапуске Firefox. Для работы должен быть запущен локальный плагин в Codex.</p>
+</main><script src="config.js"></script><script src="options.js"></script></body></html>
