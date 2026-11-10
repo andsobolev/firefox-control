@@ -1,5 +1,7 @@
 Public preview of Firefox Control for Windows, maintained by andsobolev under MIT.
 
+**Инструкция на русском:** [читать на GitHub](https://github.com/andsobolev/firefox-control/blob/main/INSTALL-RU.md) · [скачать INSTALL-RU.md](https://github.com/andsobolev/firefox-control/releases/download/v0.3.1-preview.1/INSTALL-RU.md).
+
 Connect Firefox to a local Codex assistant with explicit pairing. Includes ten
 tools for tab listing and closure, exact duplicate cleanup, page reading,
 navigation, clicks, text input, scrolling and screenshots.
