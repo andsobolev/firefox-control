@@ -17,6 +17,16 @@ under a fresh Windows user profile has not yet been tested.
 
 The existing signed 0.3.0 add-on was separately verified in live use.
 
+On 2026-11-10, the downloaded 0.3.1 XPI was verified before GitHub publication:
+
+- Same version, stable ID and permissions as the submitted package.
+- All 13 extension files match, except manifest.json's removed final newline.
+- Valid PKCS7 cryptographic signature and all 15 signed file digests.
+- Firefox 159.0.1 recognized the production signature as signedState 2 and the
+  extension as active, with appDisabled and userDisabled both false, in a separate
+  temporary profile. Signature enforcement remained enabled; no development root.
+- SHA256: 3fdef2043cb6af90c7dcea463ae13d421e5a2754a140f1b9bd50abc694b25dd1.
+
 Current candidate checks and remaining publication items are recorded in the
-root release/STATUS.md. Approval of 0.3.0 does not imply approval of 0.3.1.
+root release/STATUS.md. Package signing does not establish public catalog visibility.
 No browsing history, pairing keys or user profile data belongs in this file.

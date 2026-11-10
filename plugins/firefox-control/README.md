@@ -1,7 +1,7 @@
 # Firefox Control
 
 Firefox Control public candidate 0.3.1 for Windows.
-The 0.3.1 candidate source is public; Mozilla signing and listing are pending.
+The 0.3.1 source and Mozilla-signed XPI are public on GitHub; catalog availability is not yet verified.
 See the repository root README for Windows installation.
 Windows, Node.js 22+, Firefox 142+. Ten tools: status, list tabs, read, open,
 close, navigate, click, fill, scroll and screenshot. No runtime npm dependencies.

@@ -6,13 +6,14 @@ were selected by the owner. Public author and GitHub username: andsobolev.
 
 - Existing Firefox UUID and AMO add-on record 3122984 will be retained.
 - Existing private installation is separate from this release preparation copy.
-- Public candidate version: 0.3.1. It must be signed as a new listed version.
-- The installed 0.3.0 signed extension is not evidence of approval for 0.3.1.
+- Public preview version: 0.3.1. Its Mozilla-signed XPI is now available on GitHub.
+- The signed XPI was verified separately from the existing 0.3.0 installation.
 - Public repository: https://github.com/andsobolev/firefox-control
 - Publisher account and public visibility were verified. GitHub Issues is enabled.
 - Support: https://github.com/andsobolev/firefox-control/issues
 - Privacy: https://github.com/andsobolev/firefox-control/blob/main/PRIVACY.md
-- Version 0.3.1 is a public preview, not a Mozilla-approved listed release.
+- Version 0.3.1 is a public preview. Signing is confirmed; public Mozilla catalog
+  availability has not yet been independently verified.
 - The universal OpenAI directory is a separate process: local MCP submissions
   currently require an allowlisted partner organization. This repository release
   does not claim inclusion in that directory.
@@ -25,11 +26,17 @@ Verified on 2026-11-10:
 - Public package validation passed, including version, identity, permissions,
   marketplace portability and private-data checks.
 - Windows installer parsing and CheckOnly prerequisite checks passed.
+- The downloaded 0.3.1 XPI matches all 13 submitted extension files, except for
+  removal of the final newline in manifest.json. ID and permissions are unchanged.
+- Its cryptographic signature and all 15 signed file digests passed verification.
+- Firefox 159.0.1 accepted the XPI as signedState 2, active and not disabled in
+  an isolated profile with production signature enforcement enabled.
+- XPI SHA256: 3fdef2043cb6af90c7dcea463ae13d421e5a2754a140f1b9bd50abc694b25dd1.
 - Full installation under a fresh Windows user profile is not yet tested.
 
-Remaining: submit the new listed version in the existing Mozilla record and
-verify its status; publish the resulting signed XPI and public listing URL;
-verify a fresh Windows installation. Mozilla review is separate from these tests.
+Remaining: verify the public Mozilla listing and publish its actual URL;
+verify a full fresh Windows installation. Mozilla listing review is separate
+from the confirmed package signature and local tests.
 
 References checked on 2026-11-10:
 

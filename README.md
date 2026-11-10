@@ -8,8 +8,8 @@ Maintained by **andsobolev**, distributed under the [MIT license](LICENSE).
 This is an independent project, not an official Mozilla or OpenAI integration.
 It consists of a Firefox extension and a local Codex plugin. Both are required.
 
-**Release status:** 0.3.1 is a public preview. The companion and source are
-available; Mozilla signing and the public add-on listing are still pending.
+**Release status:** 0.3.1 is a public preview. The companion, source and
+Mozilla-signed XPI are available. A public Mozilla catalog listing is not yet verified.
 The unsigned extension ZIP is for Mozilla submission, not permanent installation.
 
 ## Requirements
@@ -44,8 +44,8 @@ is backed up before its files are updated. Administrator privileges are not need
 If PowerShell blocks the script, review and unblock the downloaded files through
 Windows file Properties according to your computer's policy.
 
-Install the signed Firefox extension from its Mozilla listing when available,
-or use `about:addons` → gear → **Install Add-on From File** with the signed XPI.
+Download [the signed Firefox extension](https://github.com/andsobolev/firefox-control/releases/download/v0.3.1-preview.1/firefox-control-0.3.1-signed.xpi).
+Use `about:addons` → gear → **Install Add-on From File** and select that XPI.
 An unsigned ZIP cannot be installed permanently in regular Firefox.
 
 In the extension settings:
@@ -98,6 +98,8 @@ distributions; retain the extension UUID for signed updates.
 
 Source and installation materials are published at
 [andsobolev/firefox-control](https://github.com/andsobolev/firefox-control).
-Version 0.3.1 is awaiting Mozilla submission and approval as a listed release.
+The Mozilla-signed 0.3.1 XPI is available from the GitHub release and has passed
+signature validation in Firefox. Public availability in Mozilla's catalog has
+not yet been independently confirmed.
 The installer prerequisite check and isolated browser tests have passed; a full
 installation under a fresh Windows user profile has not yet been tested.
